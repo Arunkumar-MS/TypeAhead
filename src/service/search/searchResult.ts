@@ -29,6 +29,9 @@ export interface HighlightResult {
     url: Url;
     author: Author;
     story_text: StoryText;
+    story_title: StoryText;
+    comment_text: StoryText;
+    story_url: StoryText;
 }
 
 export interface Hit {
