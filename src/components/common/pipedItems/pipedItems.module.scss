@@ -1,0 +1,12 @@
+.container {
+  color: #828282;
+  font-weight: 400;
+  span:after {
+    content: "|";
+    margin: 0 10px;
+  }
+  span:last-child:after {
+    content: '';
+    margin: 0 10px;
+  }
+}

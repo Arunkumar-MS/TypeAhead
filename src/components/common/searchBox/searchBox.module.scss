@@ -1,0 +1,28 @@
+
+.searchBox {
+    position: relative;
+}
+.searchIconStyle {
+    color: gray;
+}
+.searchIcon {
+    position: absolute;
+    top: 7px;
+    left: 11px;
+    font-size: 12px;
+}
+
+.searchInput {
+    border-radius: 5px;
+    border: 1px solid gray;
+    height: 30px;
+    width: 100%;
+    box-shadow: none;
+    padding: 16px 5px 16px 40px;
+    font-weight: 300;
+    background-color: #fff;
+    color: rgba(0,0,0,.75);
+    &:focus {
+        outline: none;
+    }
+}
