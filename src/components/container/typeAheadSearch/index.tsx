@@ -3,7 +3,7 @@ import PostList from '../../post/postList';
 import SearchBox from '../../common/searchBox';
 import throttle from 'lodash.throttle';
 import { getSearchResult } from '../../../service/search/getSearchResult';
-import { mapSearchResult  } from '../../../mappers/searchResultMapper';
+import { mapSearchResult } from '../../../mappers/searchResultMapper';
 import { SearchResult } from '../../../mappers/searchResultMapperType';
 import styles from './typeAheadSearch.module.scss';
 
@@ -13,7 +13,7 @@ const SearchContiner = () => {
     const [result, setResult] = React.useState([]);
     const [searchTerm, setSearchTerm] = React.useState(null);
 
-    const fetchNews = useCallback(throttle( async (query) => {
+    const fetchNews = useCallback(throttle(async (query) => {
         const data = await getSearchResult<SearchResult[]>(query, mapSearchResult);
         setResult(data);
     }, THROTTLE_LIMIT), []);
@@ -23,11 +23,14 @@ const SearchContiner = () => {
         fetchNews(query);
     }
     return (
-        <div className={styles.wrapper}>
-            <div className={styles.title}>Search Hacker News</div>
-            <SearchBox onSearch={onChangeHandler} placeholder="Type here to start searching"  customClass={styles.searchBox}/>
-            {searchTerm && <PostList items={result} />}
-        </div>
+        <>
+            <div className={styles.viewCode}><a  target="_blank"  href="https://github.com/Arunkumar-MS/TypeAhead">View source code </a></div>
+            <div className={styles.wrapper}>
+                <div className={styles.title}>Search Hacker News</div>
+                <SearchBox onSearch={onChangeHandler} placeholder="Type here to start searching" customClass={styles.searchBox} />
+                {searchTerm && <PostList items={result} />}
+            </div>
+        </>
     )
 };
 
